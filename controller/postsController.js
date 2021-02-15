@@ -152,11 +152,9 @@ const getCountriesCount = async (req, res) => {
 
 const getCountries = async (req, res) => {
     try {
-        // let response = await postsSchema.find({},("countryCode"))
         let response = await postsSchema.aggregate([
             { "$group": { _id: "$countryCode", count: { $sum: 1 } } }
         ])
-        console.log("Response", response)
         if (response) {
             statusMessages.SUCCESS_MSG.SUCCESS.data = response
             res.json(statusMessages.SUCCESS_MSG.SUCCESS)
