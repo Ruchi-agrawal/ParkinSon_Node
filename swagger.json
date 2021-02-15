@@ -1,0 +1,291 @@
+{
+    "swagger": "2.0.0",
+    "info": {
+        "version": "1.0.5",
+        "title": "Parkin-Sons",
+        "descripti0on": "Manage the api",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "",
+    "tags": [],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "Posts": {},
+        "/api/posts/create_post": {
+            "post": {
+                "summary": "Create a Posts",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Create Post",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/get_all_post": {
+            "get": {
+                "summary": "Fetch All Post",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/get_one_post": {
+            "get": {
+                "summary": "Fetch Particular Post",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/get_coutry": {
+            "get": {
+                "summary": "List of Countries",
+                "tags": [
+                    "Country"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/get_country_count": {
+            "get": {
+                "summary": "List of Countries",
+                "tags": [
+                    "Country"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/update_post": {
+            "post": {
+                "summary": "Update Post",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"query"
+                    },
+                    {
+                        "name": "Create Post",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/updatePosts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/delete_post": {
+            "post": {
+                "summary": "Delete Post",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name":"id",
+                        "in":"query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/files/file_upload": {
+            "post": {
+                "summary": "Upload imgae for post",
+                "tags": [
+                    "File Upload"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in":"formData",
+                        "name":"myFile",
+                        "type":"file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic"
+        },
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "token",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Posts": {
+            "required": [],
+            "properties": {
+                "userId": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "userName":{
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "userEmail":{
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "caption": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "text": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "date": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                }
+            }
+        },
+        "updatePosts": {
+            "required": [],
+            "properties": {
+                "imageUrl": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "caption": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "text": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "date": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "uniqueItems": "false"
+                }
+            }
+        }
+    }
+}

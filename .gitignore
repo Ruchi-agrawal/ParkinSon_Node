@@ -1,0 +1,27 @@
+################################################################################
+# finally ignore...
+################################################################################
+
+
+# dependencies
+/node_modules
+agentsga_teway.sql
+
+
+# production
+/build
+
+**/.vscode/
+# misc
+.DS_Store
+/vscode
+vscode/
+agentsga_teway.sql
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+keyAWS.json
