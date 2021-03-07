@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:5000",
+    "host": "52.30.228.217:5000",
     "basePath": "",
     "tags": [],
     "schemes": [
@@ -65,6 +65,23 @@
                         "name": "countryCode",
                         "in": "query"
                     }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/posts/get_active_post": {
+            "get": {
+                "summary": "Fetch Active Post",
+                "tags": [
+                    "Post"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
                 ],
                 "responses": {
                     "200": {
@@ -178,8 +195,11 @@
                 ],
                 "parameters": [
                     {
-                        "name":"id",
-                        "in":"query"
+                        "name": "Delete Post by _id",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Posts"
+                        }
                     }
                 ],
                 "responses": {
@@ -204,6 +224,33 @@
                         "in":"formData",
                         "name":"myFile",
                         "type":"file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/users/handle_user": {
+            "get": {
+                "summary": "Block an User(type block in event field for blocking user.)",
+                "tags": [
+                    "User"
+                ],
+                "consumes": "application/json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in":"query",
+                        "name":"userId"
+                    },
+                    {
+                        "in":"query",
+                        "name":"event"
                     }
                 ],
                 "responses": {

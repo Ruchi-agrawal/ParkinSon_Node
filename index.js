@@ -12,11 +12,12 @@ app.use(cors())
 
 const postRoutes = require("./routes/postsRoute")
 const fileRoutes = require("./routes/fileRoute")
-
-app.use("/", express.static(path.join(__dirname, '/uploads')))
-app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use("/api/posts", postRoutes)
-app.use("/api/files", fileRoutes)
+const userRoutes = require("./routes/userRoute")
+app.use("/node", express.static(path.join(__dirname, 'uploads')))
+app.use("/node/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/node/api/posts", postRoutes)
+app.use("/node/api/files", fileRoutes)
+app.use("/node/api/user", userRoutes)
 
 
 app.listen(port, ()=>{console.log("ParkinSons API is listening Port ", port)})

@@ -2,11 +2,11 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var PostSchema = new Schema({
-    id: {  //ID = UUID
+    id: {  
         type: String,
         require: true
     },
-    userId: {
+    userId: {//userId = UUID
         type: String
     },
     userName: {
@@ -29,6 +29,9 @@ var PostSchema = new Schema({
     },
     countryCode: {
         type: String
+    },
+    status:{
+        type: Boolean
     }
 })
 
